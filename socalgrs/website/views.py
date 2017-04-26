@@ -1,12 +1,15 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.shortcuts import render
+from django import http
+from django.conf import settings
+from django.http import HttpResponseRedirect, HttpResponse,Http404
+from django.shortcuts import render, get_object_or_404,render_to_response
+from django.template import RequestContext, Context, loader
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import View, DetailView, TemplateView
 
-# Create your views here.
+class HomeView(View):
 
-from django.http import HttpResponse
-
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the SoCalGRS index.")
+    def get(self, request):
+        page_data={}
+        template_name = 'index.html'
+        return render(request,template_name, page_data)
