@@ -1,7 +1,24 @@
-h1 {
-	color: red;
-}
 
 body {
-	background-color: green;
+	background-color: #DCDCDC;
+
 }
+
+
+.banner {
+	color: #000080;
+	background-color: #7A8BA3;
+}
+
+li {
+	list-style: none;
+}
+
+.whoAreWe {
+	background-color: #D3D3D3;
+}
+
+.rights {
+	background-color: #7A8BA3;
+}
+
