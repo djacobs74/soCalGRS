@@ -10,15 +10,27 @@ body {
 	background-color: #7A8BA3;
 }
 
-li {
-	list-style: none;
+.navBox {
+	
+	color: #000080;
 }
 
+
+.pictures {
+	border-radius: 5px;
+}
+
+
+
+
+
 .whoAreWe {
-	background-color: #D3D3D3;
+	background-color: #C0C0C0;
+	border-radius: 5px;
 }
 
 .rights {
 	background-color: #7A8BA3;
+	color: white;
 }
 
