@@ -1,6 +1,7 @@
 
 body {
 	background-color: #DCDCDC;
+	overflow: scroll;
 
 }
 
@@ -8,6 +9,7 @@ footer {
 	bottom: 0;
 	position: relative;
 	width: 100%;
+	overflow: hidden;
 }
 
 .banner {
