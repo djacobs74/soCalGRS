@@ -4,6 +4,11 @@ body {
 
 }
 
+footer {
+	bottom: 0;
+	position: relative;
+	width: 100%;
+}
 
 .banner {
 	color: #000080;
