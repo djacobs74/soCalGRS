@@ -13,3 +13,10 @@ class HomeView(View):
         page_data={}
         template_name = 'index.html'
         return render(request,template_name, page_data)
+
+class WelcomeView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'welcome.html'
+        return render(request,template_name, page_data)
