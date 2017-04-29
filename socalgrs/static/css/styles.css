@@ -1,16 +1,15 @@
-
+html {
+	margin: 0;
+	padding: 0;
+}
 body {
 	background-color: #DCDCDC;
 	overflow: scroll;
-
+	margin: 0;
+	padding: 0;
 }
 
-footer {
-	bottom: 0;
-	position: relative;
-	width: 100%;
-	overflow: hidden;
-}
+
 
 .banner {
 	color: #000080;
@@ -45,5 +44,9 @@ footer {
 .rights {
 	background-color: #7A8BA3;
 	color: white;
+}
+
+.navbar {
+	margin-bottom: 0;
 }
 

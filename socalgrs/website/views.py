@@ -20,3 +20,49 @@ class WelcomeView(View):
         page_data={}
         template_name = 'welcome.html'
         return render(request,template_name, page_data)
+
+class GardenRailwaysView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'gardenRailways.html'
+        return render(request,template_name, page_data)
+
+class DirectoryView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'directory.html'
+        return render(request,template_name, page_data)
+
+class ContactView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'contact.html'
+        return render(request,template_name, page_data)
+
+class MembershipView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'membership.html'
+        return render(request,template_name, page_data)
+
+class EventsView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'events.html'
+        return render(request,template_name, page_data)
+
+class NewslettersView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'newsletters.html'
+        return render(request,template_name, page_data)
+
+
+
+
