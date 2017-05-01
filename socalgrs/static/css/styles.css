@@ -21,6 +21,9 @@ body {
 	color: #000080;
 }
 
+.socalText {
+	color: #000080;
+}
 
 .pictures {
 	border-radius: 5px;
@@ -35,7 +38,7 @@ body {
 }
 
 
-.whoAreWe {
+.bubble {
 	background-color: #C0C0C0;
 	border-radius: 5px;
 	color: #000080;

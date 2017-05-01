@@ -1,0 +1,5 @@
+Django==1.11
+gunicorn==19.0.0
+sorl-thumbnail
+Pillow>=2.0
+Wand
