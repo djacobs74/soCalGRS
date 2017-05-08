@@ -8,24 +8,32 @@
 
 <h1 class="text-center">Garden Railways</h1>
 
+<div>
+	<img class="pictures img-responsive center-block" src="/static/images/Kelly007.jpg">
+</div>	
+<br>
 
-
-<div class="container-fluid">
-	<div>
-		<img class="pictures img-responsive center-block" src="/static/images/Kelly007.jpg">
-	</div>		
-	
+<div class="container-fluid"">
 	<div class="row text-center">
-		<h3 class="text-center">Photographs of Member Garden Layouts</h3>
-		
-			
-
-			{% for railway in railways %}
-				                  <button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group"><!--<a href="/gardenRailways/{{railway.id}}/">-->{{railway.title}}</button>
-	        {% endfor %}
-		
+		<div class="bubble col-xs-8 col-xs-offset-2">
+			<h3 class="text-center">Photographs of Member Garden Layouts</h3>
+				{% for railway in railways %}
+					<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group"><!--<a href="/gardenRailways/{{railway.id}}/">-->{{railway.title}}</button>
+	        	{% endfor %}
+	    </div>
 	</div>
 </div>
+<br>
+
+<!-- PUBLIC DISPLAYS
+
+
+-->
+
+<!-- ARCHIVES
+
+
+-->
 
 <br>
 {% include 'footer.html' %}

@@ -14,10 +14,11 @@ body {
 .banner {
 	color: #000080;
 	background-color: #7A8BA3;
+	font-family: 'Vast Shadow';
 }
 
 .navBox {
-	
+	font-family: 'Secular One', sans-serif;
 	color: #000080;
 }
 
@@ -37,19 +38,29 @@ body {
 	
 }
 
+h1 {
+	font-family: 'Secular One', sans-serif;
+	color: #000080;
+}
 
 .bubble {
 	background-color: #C0C0C0;
 	border-radius: 5px;
 	color: #000080;
+	font-family: 'Secular One', sans-serif;
 }
 
 .rights {
 	background-color: #7A8BA3;
 	color: white;
+	font-family: 'Secular One', sans-serif;
 }
 
 .navbar {
 	margin-bottom: 0;
+}
+
+.names {
+	color: #337AB7;
 }
 
