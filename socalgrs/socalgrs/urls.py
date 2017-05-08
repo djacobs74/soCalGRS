@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^$', HomeView.as_view(), name='socalgrs'),
     url(r'^welcome/', WelcomeView.as_view()),
     url(r'^gardenRailways/', GardenRailwaysView.as_view()),
-    # url(r'^gardenRailways/(?P<id>[\w\._-]+)/$', GardenRailwaysDetailView.as_view()),
+    # url(r'^gardenRailways/(?P<id>[\w\._-]+)/$', GardenRailwaysDetailView.as_view()), # pics page
     url(r'^directory/', DirectoryView.as_view()),
     url(r'^contact/', ContactView.as_view()),
     url(r'^membership/', MembershipView.as_view()),

@@ -1,24 +1,34 @@
-{% include 'head.html' %}
-{% include 'navbar.html' %}
+
 
 
 
 <body>
+{% include 'head.html' %}
+{% include 'navbar.html' %}
 
-<h1 class="text-center">garden railways</h1>
+<h1 class="text-center">Garden Railways</h1>
+
+
 
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-xs-10 col-xs-offset-1">
-			<h3>Railway list</h3>
+	<div>
+		<img class="pictures img-responsive center-block" src="/static/images/Kelly007.jpg">
+	</div>		
+	
+	<div class="row text-center">
+		<h3 class="text-center">Photographs of Member Garden Layouts</h3>
+		
+			
 
 			{% for railway in railways %}
-	                  <div class="railways" data-id="{{railway.id}}"><button type="button" class="btn btn-block btn-secondary"><!--<a href="/gardenRailways/{{railway.id}}/">--><br/><p class="listing">{{railway.title}}</p></div></button>
+				                  <button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group"><!--<a href="/gardenRailways/{{railway.id}}/">-->{{railway.title}}</button>
 	        {% endfor %}
-		</div>
+		
 	</div>
 </div>
 
-
-</body>
+<br>
 {% include 'footer.html' %}
+</body>
+</html>
+
