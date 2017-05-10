@@ -25,7 +25,7 @@ class WelcomeView(View):
 class GardenRailwaysView(View):
 
     def get(self, request):
-        railway_query = Railway.objects.all()
+        railway_query = Railway.objects.filter(category__in=['garden', 'public', 'archive'])
 
         page_data={
             'railways':railway_query,
