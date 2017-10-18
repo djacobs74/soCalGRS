@@ -70,7 +70,11 @@ class MembershipView(View):
 class EventsView(View):
 
     def get(self, request):
-        page_data={}
+        event_query = Event.objects.filter(category__in=['event', 'public']).order_by("position")
+
+        page_data={
+            'events':event_query,
+        }
         template_name = 'events.html'
         return render(request,template_name, page_data)
 

@@ -18,3 +18,9 @@ class RailwayImageAdmin(admin.ModelAdmin):
     search_fields = ['title']
 
 admin.site.register(RailwayImage, RailwayImageAdmin)
+
+class EventAdmin(admin.ModelAdmin):
+    list_display = ('title', 'position')
+    search_fields = ['title']
+
+admin.site.register(Event, EventAdmin)
