@@ -33,19 +33,6 @@ class GardenRailwaysView(View):
         template_name = 'gardenRailways.html'
         return render(request,template_name, page_data)
 
-class GardenRailwaysDetailView(View):  ### view raiway pics page
-
-    def get(self, request):
-
-        single_railway = Railway.objects.get(id=self.kwargs['id'])
-
-        railway_images = RailwayImage.objets.filter(railway=single_railway)
-        page_data={
-            'railway':single_railway,
-            'images':railway_images
-        }
-        template_name = 'gardenRailwaysDetail.html'
-        return render(request,template_name, page_data)
 class DirectoryView(View):
 
     def get(self, request):
