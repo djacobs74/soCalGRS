@@ -7,6 +7,8 @@ body {
 	overflow: scroll;
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	z-index: 1;
 }
 
 
@@ -20,6 +22,8 @@ body {
 .navBox {
 	font-family: 'Secular One', sans-serif;
 	color: #000080;
+	padding-top: 50px;
+	z-index: -1;
 }
 
 .socalText {
@@ -68,3 +72,6 @@ h1 {
 	list-style-type: none;
 }
 
+.footSpace {
+	min-height: 100px;
+}
