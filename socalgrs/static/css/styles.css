@@ -11,7 +11,9 @@ body {
 	z-index: 1;
 }
 
-
+.para-space {
+	margin-top: 10px;
+}
 
 .banner {
 	color: #000080;
