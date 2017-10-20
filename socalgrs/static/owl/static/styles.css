@@ -1,0 +1,33 @@
+.owl-dots{position:absolute;left:0;right:0;bottom:15px;text-align:center}
+.owl-dot{display:inline-block;padding:5px}
+.owl-dot span{display:block;width:10px;height:10px;background-color:#fff;opacity:.5;border-radius:50%}
+.owl-dot.active span{opacity:1}
+.owl-dots.disabled,.owl-nav.disabled{display:none}
+
+.fs-slides {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.fs-slides .owl-stage-outer,
+.fs-slides .owl-stage,
+.fs-slides .owl-item {
+  height: 100%;
+}
+
+.fs-slides .owl-item {
+  overflow: hidden;
+}
+
+.fs-slides .owl-item.portrait img {
+  width: 100%;
+  height: auto;
+}
+
+.fs-slides .owl-item.landscape img {
+  width: auto;
+  height: 100%;
+}

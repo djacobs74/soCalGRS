@@ -51,7 +51,7 @@
 							<p class="socalText">{{railway.description}}</p>
 						</div>
 					</div>
-					<div class="row">
+					<div class="owl-carousel layout-image">
 						{% for railwayimage in railway.images %}
 							<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
 						{% endfor %}
@@ -87,6 +87,28 @@
 
 	$(document).ready(function(){
 
+		$('.owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:10,
+		    center:true,
+		    responsiveClass:true,
+		    responsive:{
+		        0:{
+		            items:4,
+		            nav:true
+		        },
+		        600:{
+		            items:8,
+		            nav:false
+		        },
+		        1000:{
+		            items:10,
+		            nav:true,
+		            loop:false
+		        }
+		    }
+		})
+
 		$(".displayButton").on( "click", function(){
 			var $this = $(this);
 			var target = $this.data("id")  // target data-id
@@ -95,6 +117,8 @@
 		});
 	
 	});
+
+
 
 </script>
 
