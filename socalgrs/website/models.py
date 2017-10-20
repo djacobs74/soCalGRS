@@ -26,6 +26,10 @@ class Railway(models.Model):
     def __unicode__(self):
         return self.title
 
+    @property
+    def images(self):
+        return RailwayImage.objects.filter(railway=self)
+
 class RailwayImage(models.Model):
     railway     	= models.ForeignKey(Railway, blank=True, null=True)
     description     = models.CharField(default="", max_length=255)
@@ -40,4 +44,33 @@ class RailwayImage(models.Model):
     def __unicode__(self):
         return self.railway.title
 
+    @property
+    def display_image(self):
+        try:
+            if self.image and hasattr(self.image, 'url'):
+                return self.image.url
 
+            else:
+                return ''
+
+        except Exception:
+            return ''
+
+
+class Event(models.Model):
+    title           = models.CharField(default="", max_length=255)
+    date            = models.CharField(default="", max_length=255)
+    location        = models.CharField(default="", max_length=255)
+    time            = models.CharField(default="", max_length=255, blank=True)
+    description     = models.CharField(default="", max_length=255, blank=True)
+    link            = models.CharField(default="", max_length=255, blank=True)
+    category        = models.CharField(max_length=100, blank=True, choices=(('event','Events'),('public','Public Displays')))
+    position        = models.IntegerField(default=1, null=True, blank=True)
+
+    class Meta:
+        ordering = ['position']
+        verbose_name_plural = "Events"
+        verbose_name = "Event"
+
+    def __unicode__(self):
+        return self.title

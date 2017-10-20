@@ -7,6 +7,7 @@ from django.template import RequestContext, Context, loader
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import View, DetailView, TemplateView
 from website.models import *
+from django.core.mail import send_mail
 
 class HomeView(View):
 
@@ -33,19 +34,6 @@ class GardenRailwaysView(View):
         template_name = 'gardenRailways.html'
         return render(request,template_name, page_data)
 
-class GardenRailwaysDetailView(View):  ### view raiway pics page
-
-    def get(self, request):
-
-        single_railway = Railway.objects.get(id=self.kwargs['id'])
-
-        railway_images = RailwayImage.objets.filter(railway=single_railway)
-        page_data={
-            'railway':single_railway,
-            'images':railway_images
-        }
-        template_name = 'gardenRailwaysDetail.html'
-        return render(request,template_name, page_data)
 class DirectoryView(View):
 
     def get(self, request):
@@ -53,12 +41,6 @@ class DirectoryView(View):
         template_name = 'directory.html'
         return render(request,template_name, page_data)
 
-class ContactView(View):
-
-    def get(self, request):
-        page_data={}
-        template_name = 'contact.html'
-        return render(request,template_name, page_data)
 
 class MembershipView(View):
 
@@ -70,7 +52,11 @@ class MembershipView(View):
 class EventsView(View):
 
     def get(self, request):
-        page_data={}
+        event_query = Event.objects.filter(category__in=['event', 'public']).order_by("position")
+
+        page_data={
+            'events':event_query,
+        }
         template_name = 'events.html'
         return render(request,template_name, page_data)
 
@@ -81,6 +67,30 @@ class NewslettersView(View):
         template_name = 'newsletters.html'
         return render(request,template_name, page_data)
 
+class ContactView(View):
+
+    def get(self, request):
+        page_data={}
+        template_name = 'contact.html'
+        return render(request,template_name, page_data)
+
+    def post(self, request, *args, **kwargs):
+
+        name=request.POST.get("name", None)
+        email=request.POST.get("email", None)
+        message=request.POST.get("message", None)
+        if email is not None and email != "" and message is not None:
+            
+            tmp_msg = 'Email from: ' + email + ' : ' + name+'\n\n\n'+message
+
+            send_mail("email from SoCalGRS", tmp_msg, email, ["djacobs74@gmail.com"], fail_silently=False)
+            
+            return HttpResponseRedirect("/contact/?success=1")
+
+        else:
+            page_data={'page_title':'contact', 'error':True}
+            template_name = 'contact.html'
+            return render(request,template_name, page_data)
 
 
 

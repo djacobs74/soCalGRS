@@ -1,12 +1,9 @@
 
-
-
-
-<body>
 {% include 'head.html' %}
+<body>
 {% include 'navbar.html' %}
 
-<h1 class="text-center">Garden Railways</h1>
+<h1 class=" headline text-center">Garden Railways</h1>
 
 <div>
 	<img class="pictures img-responsive center-block" src="/static/images/Kelly007.jpg">
@@ -16,10 +13,21 @@
 <div class="container-fluid"">
 	<div class="row text-center">
 		<div class="bubble col-xs-8 col-xs-offset-2">
-			<h3 class="text-center">Photographs of Member Garden Layouts</h3>
+			<h3 class="headline text-center">Member Garden Layouts</h3>
 				{% for railway in railways %}
 					{% if railway.category == 'garden' %}
-						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group"><!--<a href="/gardenRailways/{{railway.id}}/">-->{{railway.title}}</button>
+						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace displayButton">{{railway.title}}</button>
+					{% endif %}
+	        	{% endfor %}
+	    </div>
+	</div><br>
+
+	<div class="row text-center">
+		<div class="bubble col-xs-8 col-xs-offset-2">
+			<h3 class="headline text-center">Public Displays</h3>
+				{% for railway in railways %}
+					{% if railway.category == 'public' %}
+						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace displayButton">{{railway.title}}</button>
 					{% endif %}
 	        	{% endfor %}
 	    </div>
@@ -27,18 +35,94 @@
 </div>
 <br>
 
-<!-- PUBLIC DISPLAYS
+<!-- DISPLAY RAILWAYS WHEN SELECTED -->
 
-
--->
-
-<!-- ARCHIVES
-
-
--->
+	{% for railway in railways %}
+		<div class="displays container-fluid" data-id="{{railway.id}}">
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 bubble">
+					<div class="row">
+						<div class="text-center title col-xs-8 col-xs-offset-2">
+							<h3 class="headline">{{railway.title}}</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="text-center description col-xs-8 col-xs-offset-2">
+							<p class="socalText">{{railway.description}}</p>
+						</div>
+					</div>
+					<div class="owl-carousel layout-image">
+						{% for railwayimage in railway.images %}
+							<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
 
 <br>
+
 {% include 'footer.html' %}
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+	
+    
+	
+
+
+	
+	function hideDisplay() {			
+		$(".displays").removeClass("active");
+	}
+
+	function showDisplay(id) {
+		hideDisplay();
+		$(".displays[data-id="+id+"]").addClass("active");
+		
+	}
+
+	$(document).ready(function(){
+
+		$('.owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:10,
+		    center:true,
+		    responsiveClass:true,
+		    responsive:{
+		        0:{
+		            items:4,
+		            nav:true
+		        },
+		        600:{
+		            items:8,
+		            nav:false
+		        },
+		        1000:{
+		            items:10,
+		            nav:true,
+		            loop:false
+		        }
+		    }
+		})
+
+		$(".displayButton").on( "click", function(){
+			var $this = $(this);
+			var target = $this.data("id")  // target data-id
+			showDisplay(target);
+
+		});
+	
+	});
+
+
+
+</script>
+
+
 </body>
 </html>
 

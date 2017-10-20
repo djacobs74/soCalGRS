@@ -131,3 +131,9 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'fashionovachic@gmail.com'
+EMAIL_HOST_PASSWORD = 'ILoveFashion'
+EMAIL_PORT = 587

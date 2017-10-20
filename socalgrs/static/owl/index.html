@@ -1,0 +1,62 @@
+
+<link rel="stylesheet" href="static/styles.css">
+
+<link rel="stylesheet" href="dist/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="dist/assets/owl.theme.default.min.css">
+<link rel="stylesheet" href="dist/assets/owl.carousel.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="dist/owl.carousel.min.js"></script>
+
+<body>
+<div id="fullscreen-slides" class="fs-slides owl-carousel">
+	<img src="https://lh3.googleusercontent.com/-4vaMEobrWWk/Vxo5764xSHI/AAAAAAAAR2A/RP6enN_yDWw0gum2vfDm_0hhUq-s5rnpQCCo/s800/IMG_20160422_213013.jpg" />
+	<img src="https://lh3.googleusercontent.com/-J67gMygGIo4/VmwAUA7WBjI/AAAAAAAAPX0/567ModTcE3ETygKAfpnw6EUrsbfuqVecACCo/s800/15%2B-%2B1" />
+</div>
+</body>
+
+<script>
+	function centerSlideImages( event ) {
+	var $slide = $(event.target);
+	var $conts = $slide.find('.owl-item');
+	$conts.each(function() {
+		var img = $(this).children('img');
+		var conRatio = $(this).width() / $(this).height();
+		var imgRatio = img.width() / img.height();
+		var mode = (conRatio > imgRatio) ? 'portrait' : 'landscape';
+		if( mode === 'portrait') {
+			$(this).removeClass('landscape');
+			$(this).addClass('portrait');
+			img.css({
+				marginTop: ($(this).height() - img.height()) / 2,
+				marginLeft: 0,
+			});
+		} else {
+			$(this).removeClass('portrait');
+			$(this).addClass('landscape');
+			img.css({
+				marginTop: 0,
+				marginLeft: ($(this).width() - img.width()) / 2,
+			});
+		};
+	});
+}
+
+$(window).on('load', function() {
+	$('.fs-slides').owlCarousel({
+    items: 1,
+    pullDrag: false,
+    loop: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    animateOut: 'fadeOut',
+    responsiveRefreshRate: 0,
+    onInitialized: function(event) {
+      centerSlideImages(event);
+    },
+    onResized: function(event) {
+      centerSlideImages(event);
+    },
+  });
+});
+</script>
+
