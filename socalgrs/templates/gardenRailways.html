@@ -3,7 +3,7 @@
 <body>
 {% include 'navbar.html' %}
 
-<h1 class="text-center">Garden Railways</h1>
+<h1 class=" headline text-center">Garden Railways</h1>
 
 <div>
 	<img class="pictures img-responsive center-block" src="/static/images/Kelly007.jpg">
@@ -13,10 +13,10 @@
 <div class="container-fluid"">
 	<div class="row text-center">
 		<div class="bubble col-xs-8 col-xs-offset-2">
-			<h3 class="text-center">Member Garden Layouts</h3>
+			<h3 class="headline text-center">Member Garden Layouts</h3>
 				{% for railway in railways %}
 					{% if railway.category == 'garden' %}
-						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace"><!--<a href="/gardenRailways/{{railway.id}}/">-->{{railway.title}}</button>
+						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace displayButton">{{railway.title}}</button>
 					{% endif %}
 	        	{% endfor %}
 	    </div>
@@ -24,7 +24,7 @@
 
 	<div class="row text-center">
 		<div class="bubble col-xs-8 col-xs-offset-2">
-			<h3 class="text-center">Public Displays</h3>
+			<h3 class="headline text-center">Public Displays</h3>
 				{% for railway in railways %}
 					{% if railway.category == 'public' %}
 						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace displayButton">{{railway.title}}</button>
@@ -38,19 +38,26 @@
 <!-- DISPLAY RAILWAYS WHEN SELECTED -->
 
 	{% for railway in railways %}
-		<div class="displays" data-id="{{railway.id}}">
-
-			<div class="text-center title col-xs-8 col-xs-offset-2">
-				<h3>{{railway.title}}</h3>
+		<div class="displays container-fluid" data-id="{{railway.id}}">
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 bubble">
+					<div class="row">
+						<div class="text-center title col-xs-8 col-xs-offset-2">
+							<h3 class="headline">{{railway.title}}</h3>
+						</div>
+					</div>
+					<div class="row">
+						<div class="text-center description col-xs-8 col-xs-offset-2">
+							<p class="socalText">{{railway.description}}</p>
+						</div>
+					</div>
+					<div class="row">
+						{% for railwayimage in railway.images %}
+							<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
+						{% endfor %}
+					</div>
+				</div>
 			</div>
-			
-			<div class="text-center description col-xs-8 col-xs-offset-2">
-				<p>{{railway.description}}</p>
-			</div>
-			
-			{% for railwayimage in railway.images %}
-			<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
-			{% endfor %}
 		</div>
 	{% endfor %}
 
@@ -82,7 +89,7 @@
 
 		$(".displayButton").on( "click", function(){
 			var $this = $(this);
-			var target = $this.data("id")
+			var target = $this.data("id")  // target data-id
 			showDisplay(target);
 
 		});
