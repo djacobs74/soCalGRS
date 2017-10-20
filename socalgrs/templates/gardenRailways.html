@@ -13,7 +13,7 @@
 <div class="container-fluid"">
 	<div class="row text-center">
 		<div class="bubble col-xs-8 col-xs-offset-2">
-			<h3 class="text-center">Photographs of Member Garden Layouts</h3>
+			<h3 class="text-center">Member Garden Layouts</h3>
 				{% for railway in railways %}
 					{% if railway.category == 'garden' %}
 						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace"><!--<a href="/gardenRailways/{{railway.id}}/">-->{{railway.title}}</button>
@@ -24,10 +24,10 @@
 
 	<div class="row text-center">
 		<div class="bubble col-xs-8 col-xs-offset-2">
-			<h3 class="text-center">Photographs of Public Displays</h3>
+			<h3 class="text-center">Public Displays</h3>
 				{% for railway in railways %}
 					{% if railway.category == 'public' %}
-						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace"><a href="/gardenRailways/{{railway.id}}/">{{railway.title}}</button>
+						<button type="button" data-id="{{railway.id}}" class="btn btn-primary btn-group buttonSpace displayButton">{{railway.title}}</button>
 					{% endif %}
 	        	{% endfor %}
 	    </div>
@@ -35,27 +35,59 @@
 </div>
 <br>
 
+<!-- DISPLAY RAILWAYS WHEN SELECTED -->
 
-{% for railway in railways %}
-	<div>
-		{% for railwayimage in railway.images %}
-		<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}" data-tag="{{layout.tag}}">
+	{% for railway in railways %}
+		<div class="displays">
+
+			<div class="text-center title col-xs-8 col-xs-offset-2">
+				<h3>{{railway.title}}</h3>
+			</div>
+			
+			<div class="text-center description col-xs-8 col-xs-offset-2">
+				<p>{{railway.description}}</p>
+			</div>
+			
+			{% for railwayimage in railway.images %}
+			<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
+			{% endfor %}
+		</div>
 	{% endfor %}
-	</div>
-	
-{% endfor %}
-
-
-
-
-
-
-
-
-
 
 <br>
+
 {% include 'footer.html' %}
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+	
+    
+	
+
+
+	
+	function hideDisplay() {
+		if ($(".displays").hasClass("active")) {
+			$(".displays").removeClass("active");
+		}
+	}
+
+	function showDisplay() {
+		$(".displays").addClass("active");
+		// alert( "clicked" );
+	}
+
+	$(document).ready(function(){
+
+		$(".displayButton").on( "click", showDisplay );
+	
+	});
+
+</script>
+
+
 </body>
 </html>
 
