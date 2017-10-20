@@ -14,7 +14,7 @@ class RailwayAdmin(admin.ModelAdmin):
 admin.site.register(Railway, RailwayAdmin)
 
 class RailwayImageAdmin(admin.ModelAdmin):
-    list_display = ('railway', 'position')
+    list_display = ('railway', 'position','image')
     search_fields = ['title']
 
 admin.site.register(RailwayImage, RailwayImageAdmin)

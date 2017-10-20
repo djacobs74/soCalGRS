@@ -38,7 +38,7 @@
 <!-- DISPLAY RAILWAYS WHEN SELECTED -->
 
 	{% for railway in railways %}
-		<div class="displays">
+		<div class="displays" data-id="{{railway.id}}">
 
 			<div class="text-center title col-xs-8 col-xs-offset-2">
 				<h3>{{railway.title}}</h3>
@@ -68,20 +68,24 @@
 
 
 	
-	function hideDisplay() {
-		if ($(".displays").hasClass("active")) {
-			$(".displays").removeClass("active");
-		}
+	function hideDisplay() {			
+		$(".displays").removeClass("active");
 	}
 
-	function showDisplay() {
-		$(".displays").addClass("active");
-		// alert( "clicked" );
+	function showDisplay(id) {
+		hideDisplay();
+		$(".displays[data-id="+id+"]").addClass("active");
+		
 	}
 
 	$(document).ready(function(){
 
-		$(".displayButton").on( "click", showDisplay );
+		$(".displayButton").on( "click", function(){
+			var $this = $(this);
+			var target = $this.data("id")
+			showDisplay(target);
+
+		});
 	
 	});
 

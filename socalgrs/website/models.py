@@ -56,6 +56,7 @@ class RailwayImage(models.Model):
         except Exception:
             return ''
 
+
 class Event(models.Model):
     title           = models.CharField(default="", max_length=255)
     date            = models.CharField(default="", max_length=255)
