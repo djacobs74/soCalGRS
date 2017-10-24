@@ -53,7 +53,9 @@
 					</div>
 					<div class="owl-carousel layout-image">
 						{% for railwayimage in railway.images %}
-							<img class="pictures img-responsive center-block" data-fancybox src="{{railwayimage.display_image}}">
+						<a href="{{railwayimage.display_image}}" data-fancybox="group">
+							<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
+						</a>
 						{% endfor %}
 					</div>
 				</div>
@@ -116,12 +118,11 @@
 
 		});
 
-		
-
-		$("[data-fancybox]").fancybox({
-			selector : '[data-fancybox={{railway.images}}]',
-  			loop     : true
+		$('[data-fancybox]').fancybox({
+			protect: true
 		});
+
+		
 	
 	});
 
