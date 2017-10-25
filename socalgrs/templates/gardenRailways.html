@@ -40,7 +40,7 @@
 	{% for railway in railways %}
 		<div class="displays container-fluid" data-id="{{railway.id}}">
 			<div class="row">
-				<div class="col-xs-10 col-xs-offset-1 bubble">
+				<div class="col-xs-8 col-xs-offset-2 bubble">
 					<div class="row">
 						<div class="text-center title col-xs-8 col-xs-offset-2">
 							<h3 class="headline">{{railway.title}}</h3>
@@ -51,11 +51,11 @@
 							<p class="socalText">{{railway.description}}</p>
 						</div>
 					</div>
-					<div class="owl-carousel layout-image">
+					<div class="owl-carousel owl-theme layout-image">
 						{% for railwayimage in railway.images %}
-						<a href="{{railwayimage.display_image}}" data-fancybox="{{railway.id}}">
-							<img class="pictures img-responsive center-block" src="{{railwayimage.display_image}}">
-						</a>
+						<!-- <a href="{{railwayimage.display_image}}" data-fancybox="{{railway.id}}"> -->
+							<img class="pictures img-responsive center-block" style="max-width:600px" src="{{railwayimage.display_image}}">
+						<!-- </a> -->
 						{% endfor %}
 					</div>
 				</div>
@@ -93,20 +93,20 @@
 		    loop:true,
 		    margin:10,
 		   
-		    
+		    autoHeight:true,
 		   	responsiveClass:true,
 		    responsive:{
 		        0:{
-		            items:4,
+		            items:1,
 		            nav:true
 		        },
 		        600:{
-		            items:6,
+		            items:1,
 		            nav:false
 
 		        },
 		        1000:{
-		            items:10,
+		            items:1,
 		            nav:true,
 		           
 

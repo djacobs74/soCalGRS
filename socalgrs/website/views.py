@@ -12,7 +12,11 @@ from django.core.mail import send_mail
 class HomeView(View):
 
     def get(self, request):
-        page_data={}
+        event_query = Event.objects.filter(category__in=['event', 'public']).order_by("position")
+
+        page_data={
+            'events':event_query,
+        }
         template_name = 'index.html'
         return render(request,template_name, page_data)
 

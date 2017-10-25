@@ -31,15 +31,22 @@
 		
 		<br>
 
-		<div class="row">
-			<div class="bubble col-xs-8 col-xs-offset-2">
-				<h4>Upcoming Events</h4>
+		
+			<div class="row">
+				<div class="bubble col-xs-8 col-xs-offset-2">
+					<h4>Upcoming Events</h4>
 					<ul>
-						<li>Fullerton Station "Railroad Days</li>
-						<li>33rd Garden Railway Convention</li>
+						{% for event in events %}
+							<li>{{event.title}}</li>
+						{% endfor %}
 					</ul>
+				</div>
 			</div>
-		</div>
+		
+
+
+
+
 
 		<br>
 
