@@ -15,7 +15,7 @@ def story_upload(instance, filename):
 
 class Railway(models.Model):
     title			= models.CharField(default="", max_length=255)
-    description     = models.CharField(default="", max_length=255)
+    description     = models.TextField(default="")
     category        = models.CharField(max_length=100, blank=True, choices=(('garden','Garden Layouts'),('public','Public Displays'),('archive','Archive')))
 
     class Meta:
