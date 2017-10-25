@@ -133,8 +133,23 @@ a:hover {
 	border-radius: 5px;
 }
 
+.events-link {
+	color: #000080;
+}
 
+.events-link:hover {
+	color: #337ab7;
+}
 
+.owl-nav .owl-next {
+	background: #337ab7 !important;
+}
 
+.owl-nav .owl-prev {
+	background: #337ab7 !important;
+}
 
+.owl-theme .owl-dots .owl-dot.active span {
+	background: #337ab7 !important;
+}
 

@@ -32,16 +32,18 @@
 		<br>
 
 		
-			<div class="row">
-				<div class="bubble col-xs-8 col-xs-offset-2">
-					<h4>Upcoming Events</h4>
+		<div class="row">
+			<div class="bubble col-xs-8 col-xs-offset-2">
+				<a class="events-link" href="events">
+				<h4>Upcoming Events</h4>
 					<ul>
 						{% for event in events %}
 							<li>{{event.title}}</li>
 						{% endfor %}
 					</ul>
-				</div>
+				</a>
 			</div>
+		</div>
 		
 
 
