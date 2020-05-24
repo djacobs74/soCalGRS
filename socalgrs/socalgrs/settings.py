@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-MEDIA_ROOT = '/Users/davidjacobs/desktop/trains/socalgrs/socalgrs/media/'
+MEDIA_ROOT = '/Users/davidjacobs/desktop/projects/personal/socalgrs/socalgrs/media/'
 
 MEDIA_URL = '/media/'
 
