@@ -134,6 +134,6 @@ STATICFILES_FINDERS = (
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'fashionovachic@gmail.com'
-EMAIL_HOST_PASSWORD = 'ILoveFashion'
+EMAIL_HOST_USER = 'djacobs74@gmail.com'
+EMAIL_HOST_PASSWORD = 'F22raptor!'
 EMAIL_PORT = 587
